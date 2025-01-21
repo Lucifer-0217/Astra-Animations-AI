@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View and arrange your generated illustrations into a PDF.">
+    <meta name="keywords" content="illustrations, arrange panels, storyboard, PDF">
+    <meta name="author" content="Story Creator">
+    <title>Final Illustrations | Story Creator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="header-title">Final Illustrations</h1>
+            <p class="header-subtitle">Review and arrange your generated illustrations into a cohesive storyboard.</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="illustrations-section">
+                <h2 class="section-title">Your Generated Illustrations</h2>
+                <div class="illustration-gallery">
+                    {% for url in illustration_urls %}
+                        <div class="illustration">
+                            <img src="{{ url }}" alt="Illustration" class="illustration-image"/>
+                        </div>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <section class="arrange-section">
+                <h3 class="section-title">Arrange Your Panels into PDF</h3>
+                <p class="arrange-instructions">Once you are satisfied with the illustrations, arrange them into a PDF to finalize your storyboard.</p>
+                <form action="{{ url_for('arrange') }}" method="POST" class="arrange-form">
+                    <input type="hidden" name="panels" value="{{ illustration_urls | tojson }}">
+                    <button type="submit" class="btn btn-primary">Arrange Panels into PDF</button>
+                </form>
+            </section>
+
+            <div class="navigation-links">
+                <a href="{{ url_for('index') }}" class="btn btn-secondary">Back to Home</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Story Creator. All rights reserved. | <a href="{{ url_for('privacy_policy') }}">Privacy Policy</a> | <a href="{{ url_for('terms') }}">Terms of Use</a></p>
+        </div>
+    </footer>
+
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #e0e0e0; /* Grey background */
+            color: #333;
+            font-size: 16px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #555; /* Dark grey header */
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+            border-bottom: 4px solid #333;
+        }
+
+        .header-title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .header-subtitle {
+            font-size: 18px;
+            font-weight: 300;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            background-color: #f5f5f5; /* Light grey background for content */
+            padding: 40px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #555; /* Dark grey for section titles */
+        }
+
+        .illustration-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .illustration {
+            width: 30%;
+            max-width: 350px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .illustration-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .illustration-image:hover {
+            transform: scale(1.05);
+        }
+
+        .arrange-section {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .arrange-instructions {
+            font-size: 18px;
+            font-weight: 300;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .arrange-form {
+            display: flex;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #555; /* Grey button color */
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #333; /* Darker grey on hover */
+        }
+
+        .btn-secondary {
+            background-color: #ccc; /* Light grey button */
+            color: #333;
+            margin-top: 20px;
+            padding: 12px 24px;
+        }
+
+        .btn-secondary:hover {
+            background-color: #bbb; /* Darker grey on hover */
+        }
+
+        .navigation-links {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #e0e0e0; /* Grey footer */
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .footer a {
+            color: #555; /* Dark grey for footer links */
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #333; /* Darker grey on hover */
+        }
+    </style>
+</body>
+</html>
+
+
+

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Storyboard Preview - Approve and arrange the panels for your story.">
+    <meta name="keywords" content="storyboard, illustration, panels, arrange, approve">
+    <meta name="author" content="Story Creator">
+    <title>Storyboard | Story Creator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="header-title">Storyboard Preview</h1>
+            <p class="header-subtitle">Approve and arrange your story panels to bring your narrative to life!</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="illustration-preview">
+                <h2 class="section-title">Illustration Preview</h2>
+                <div class="illustration-container">
+                    <img src="{{ illustration_url }}" alt="Illustration" class="illustration-image" />
+                </div>
+            </section>
+
+            <section class="approval-section">
+                <h3 class="section-title">Approve and Arrange Panels</h3>
+                <p class="approval-instructions">Review the illustration above, then approve and arrange the panels in your desired order for the storyboard.</p>
+                <form action="{{ url_for('arrange') }}" method="POST" class="approval-form">
+                    <input type="hidden" name="panels" value="{{ illustration_url }}">
+                    <button type="submit" class="btn btn-primary">Approve and Arrange Panels</button>
+                </form>
+            </section>
+
+            <div class="navigation-links">
+                <a href="{{ url_for('index') }}" class="btn btn-secondary">Back to Home</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Story Creator. All rights reserved. | <a href="{{ url_for('privacy_policy') }}">Privacy Policy</a> | <a href="{{ url_for('terms') }}">Terms of Use</a></p>
+        </div>
+    </footer>
+
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #6c757d; /* Grey background */
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+            border-bottom: 4px solid #5a6268; /* Darker grey border */
+        }
+
+        .header-title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .header-subtitle {
+            font-size: 18px;
+            font-weight: 300;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            background-color: #fff;
+            padding: 40px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #6c757d; /* Grey color */
+        }
+
+        .illustration-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .illustration-image {
+            max-width: 100%;
+            max-height: 600px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .approval-section {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .approval-instructions {
+            font-size: 18px;
+            font-weight: 300;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .approval-form {
+            display: flex;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #6c757d; /* Grey button */
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #5a6268; /* Darker grey on hover */
+        }
+
+        .btn-secondary {
+            background-color: #ccc;
+            color: #333;
+            margin-top: 20px;
+            padding: 12px 24px;
+        }
+
+        .btn-secondary:hover {
+            background-color: #bbb;
+        }
+
+        .navigation-links {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #f1f1f1;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .footer a {
+            color: #6c757d; /* Grey links */
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #5a6268; /* Darker grey on hover */
+        }
+    </style>
+</body>
+</html>
+
+

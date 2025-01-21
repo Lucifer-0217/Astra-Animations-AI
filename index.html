@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create stunning comic book illustrations with your own characters. Powered by Useless AI and part of Astracomics.">
+    <meta name="keywords" content="comic book, illustrations, AI, character creation, art, Astra Animations, Astracomics">
+    <meta name="author" content="Useless AI">
+    <title>Astra Animations - Powered by Useless AI | Part of Astracomics</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="/" class="logo-link">
+                        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Astra Animations Logo" class="logo-img">
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="/" class="nav-link">Home</a></li>
+                    <li><a href="/about" class="nav-link">About</a></li>
+                    <li><a href="/contact" class="nav-link">Contact</a></li>
+                    <li><a href="/astracomics" class="nav-link">Astracomics</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="container">
+                <h1 class="hero-title">Welcome to Astra Animations</h1>
+                <p class="hero-subtitle">Astra Animations, powered by Useless AI, is a proud part of Astracomics, where your unique characters come to life through stunning comic book illustrations.</p>
+                <a href="/upload" class="btn btn-primary">Upload Your Character</a>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <div class="container">
+                <h2 class="section-title">Why Choose Astra Animations?</h2>
+                <div class="features">
+                    <div class="feature">
+                        <img src="{{ url_for('static', filename='images/ai-powered.png') }}" alt="AI Powered" class="feature-img">
+                        <h3 class="feature-title">AI Powered</h3>
+                        <p class="feature-description">Our advanced AI makes it easy to generate high-quality comic book illustrations in no time.</p>
+                    </div>
+                    <div class="feature">
+                        <img src="{{ url_for('static', filename='images/creative-tools.png') }}" alt="Creative Tools" class="feature-img">
+                        <h3 class="feature-title">Creative Tools</h3>
+                        <p class="feature-description">Access a variety of tools to fine-tune your characters and illustrations to your exact specifications.</p>
+                    </div>
+                    <div class="feature">
+                        <img src="{{ url_for('static', filename='images/community.png') }}" alt="Community" class="feature-img">
+                        <h3 class="feature-title">Join the Community</h3>
+                        <p class="feature-description">Collaborate with artists and share your creations with a global community of like-minded creators.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Astra Animations, a proud part of <a href="/astracomics" class="footer-link">Astracomics</a>. All rights reserved. | <a href="/privacy-policy" class="footer-link">Privacy Policy</a> | <a href="/terms-of-service" class="footer-link">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #343a40;
+            padding: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-link {
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 50px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #6c757d; /* Changed from blue to grey */
+        }
+
+        /* Hero Section Styles */
+        .hero-section {
+            background-color: #6c757d; /* Changed from blue to grey */
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #6c757d; /* Changed from blue to grey */
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #5a6268; /* Slightly darker grey */
+        }
+
+        /* Features Section Styles */
+        .features-section {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            color: #6c757d; /* Changed from blue to grey */
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            width: 30%;
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .feature-description {
+            font-size: 16px;
+            font-weight: 400;
+            color: #555;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-link {
+            color: #6c757d; /* Changed from blue to grey */
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer-link:hover {
+            color: #5a6268; /* Slightly darker grey */
+        }
+    </style>
+</body>
+</html>
+

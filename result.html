@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Analysis Report</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        /* General Reset and Base Styling */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f8; /* Light gray background */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navbar Styling */
+        nav.navbar {
+            background-color: #343a40; /* Dark gray navbar */
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .navbar-nav .nav-link {
+            color: #f8f9fa;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ddd;
+        }
+
+        /* Main Content Section */
+        .container {
+            max-width: 800px;
+            margin-top: 30px;
+        }
+
+        .card {
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+        }
+
+        .card-header {
+            background-color: #495057; /* Dark gray header */
+            color: #ffffff;
+            border-bottom: 1px solid #ddd;
+            font-weight: 600;
+        }
+
+        .card-body {
+            padding: 20px;
+            background-color: #f9fafb;
+        }
+
+        .card-footer {
+            background-color: #f1f3f5; /* Lighter gray for footer */
+            border-top: 1px solid #ddd;
+            padding: 15px;
+        }
+
+        .h4, .h5 {
+            font-weight: bold;
+        }
+
+        /* Button Styles */
+        .btn-primary {
+            background-color: #6c757d; /* Neutral gray button */
+            border-color: #6c757d;
+        }
+
+        .btn-primary:hover {
+            background-color: #5a6268;
+            border-color: #545b62;
+        }
+
+        .btn-primary:active {
+            background-color: #4e555b;
+            border-color: #434a50;
+        }
+
+        .btn-link {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .btn-link:hover {
+            text-decoration: underline;
+        }
+
+        /* List Styles */
+        .list-group-item {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .list-group-item:hover {
+            background-color: #f8f9fa;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 15px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #f8f9fa;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                margin-top: 20px;
+            }
+
+            .card-header {
+                font-size: 1.25rem;
+            }
+
+            .card-body {
+                padding: 15px;
+            }
+
+            .btn-primary {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Character Analyzer</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content Section -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card shadow-sm">
+                    <div class="card-header text-center">
+                        <h1 class="h4">Character Analysis Report</h1>
+                    </div>
+                    <div class="card-body">
+                        <h2 class="h5">Character Overview</h2>
+                        <p><strong>Character Name:</strong> {{ character_details['character_name'] }}</p>
+                        <p><strong>Eye Color:</strong> {{ character_details['eye_color'] }}</p>
+                        <p><strong>Beard Type:</strong> {{ character_details['beard_type'] }}</p>
+                        <p><strong>Skin Tone:</strong> {{ character_details['skin_tone'] }}</p>
+
+                        <hr>
+                        <h2 class="h5">Facial Landmarks</h2>
+                        <ul class="list-group">
+                            {% for landmark, points in character_details['facial_landmarks'].items() %}
+                                <li class="list-group-item">
+                                    <strong>{{ landmark }}:</strong> {{ points }}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="/" class="btn btn-primary">Analyze Another Character</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p class="mb-0">&copy; 2024 Character Analyzer | All Rights Reserved</p>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
