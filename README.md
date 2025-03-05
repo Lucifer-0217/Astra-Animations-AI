@@ -1,6 +1,4 @@
-# Astra-Animations-AI
-
-# Astra Animations
+# Astra-Animations-AI (Prototype)
 
 ## Developed by Amit Kasbe
 
